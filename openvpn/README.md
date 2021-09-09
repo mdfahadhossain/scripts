@@ -37,6 +37,8 @@ In Linux, you'll be able to connect with just importing the file in the `Setting
 
 ### Done, congratulations!
 
+=========================
+
 ## Original script
 
 Sometimes it fails to download [EasyRSA-x.x.x.tgz](https://github.com/OpenVPN/easy-rsa/releases/download/v3.0.8/EasyRSA-3.0.8.tgz). So I edited the script mentioned below.
