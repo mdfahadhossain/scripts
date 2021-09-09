@@ -15,7 +15,7 @@ cd
 Download the script using `wget` or `curl`.
 
 ```
-wget https://github.com/favalonx/scripts/openvpn/raw/main/openvpn-install.sh
+wget https://github.com/favalonx/scripts/raw/main/openvpn/openvpn-install.sh
 ```
 
 ### Step 2
@@ -34,6 +34,8 @@ Follow the command and provide necessary informations.
 
 Copy the generated `/root/<client>.ovpn` file and use it with your [OpenVPN client](https://openvpn.net/vpn-client).
 In Linux, you'll be able to connect with just importing the file in the `Settings`.
+
+### Done, congratulations!
 
 ## Original script
 
