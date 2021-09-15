@@ -27,13 +27,7 @@ echo "deb http://deb.anydesk.com/ all main" > /etc/apt/sources.list.d/anydesk-st
 ### Step 3
 
 ```
-apt update
-```
-
-### Step 4
-
-```
-apt install anydesk -y
+apt update && apt install anydesk -y
 ```
 
 Done!

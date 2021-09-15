@@ -15,13 +15,7 @@ sudo add-apt-repository ppa:ubuntuhandbook1/audacity -y
 ### Step 1
 
 ```
-sudo apt update
-```
-
-### Step 2
-
-```
-sudo apt install audacity -y
+sudo apt update && sudo apt install audacity -y
 ```
 
 Done!
