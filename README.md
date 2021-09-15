@@ -1,7 +1,7 @@
-# Helpfull scripts for Linux
+# Helpfull scripts for Linux (Ubuntu)
 
 =================================
 
-### Run the scripts on you own responsibility.
+### Run the scripts on your own responsibility.
 
-Docs are coming
+`Docs` are coming...

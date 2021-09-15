@@ -35,17 +35,13 @@ Follow the command and provide necessary informations.
 Copy the generated `/root/<client>.ovpn` file and use it with your [OpenVPN client](https://openvpn.net/vpn-client).
 In Linux, you'll be able to connect with just importing the file in the `Settings`.
 
-### Done, congratulations!
+## Done, congratulations!
 
-=========================
+=================================
 
 ## Original script
 
-Sometimes it fails to download [EasyRSA-x.x.x.tgz](https://github.com/OpenVPN/easy-rsa/releases/download/v3.0.8/EasyRSA-3.0.8.tgz). So I edited the script mentioned below.
-
-```
-wget https://git.io/vpn -O openvpn-install.sh
-```
+Sometimes it fails to download [EasyRSA-x.x.x.tgz](https://github.com/OpenVPN/easy-rsa/releases/download/v3.0.8/EasyRSA-3.0.8.tgz). So I edited [this script](https://git.io/vpn) and pointed to the `EasyRSA-x.x.x.tgz` in this directory.
 
 ## $100 free credit in DigitalOcean
 
