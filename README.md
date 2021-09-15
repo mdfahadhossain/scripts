@@ -1,4 +1,4 @@
-# Helpfull scripts for Linux (Ubuntu)
+# Helpful scripts for Linux (Ubuntu)
 
 =================================
 
