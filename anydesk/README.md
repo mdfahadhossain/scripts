@@ -1,19 +1,51 @@
-# Anudesk
+# Anydesk
 
 =============
 
 ## Install
 
-Switch to `root` user and then run the script.
-
 ### Step 0
 
+Switch to `root` user.
+
 ```
-su root
+sudo su
 ```
 
 ### Step 1
 
 ```
-bash install-anydesk.sh
+wget -qO - https://keys.anydesk.com/repos/DEB-GPG-KEY | apt-key add -
+```
+
+### Step 2
+
+```
+echo "deb http://deb.anydesk.com/ all main" > /etc/apt/sources.list.d/anydesk-stable.list
+```
+
+### Step 3
+
+```
+apt update
+```
+
+### Step 4
+
+```
+apt install anydesk -y
+```
+
+Done!
+
+## Update
+
+```
+sudo apt update && sudo apt upgrade -y
+```
+
+## Uninstall
+
+```
+sudo apt purge anydesk -y
 ```

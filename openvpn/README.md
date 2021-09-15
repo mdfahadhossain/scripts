@@ -4,14 +4,6 @@
 
 ### Step 0
 
-Change the directory you want the script in.
-
-```
-cd
-```
-
-### Step 1
-
 Download the script using `wget` or `curl`.
 
 ```
