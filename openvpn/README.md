@@ -7,7 +7,7 @@
 Download the script using `wget` or `curl`.
 
 ```
-wget https://github.com/favalonx/scripts/raw/main/openvpn/openvpn-install.sh
+wget https://github.com/fhdaax/scripts/raw/main/openvpn/openvpn-install.sh
 ```
 
 ### Step 2
