@@ -7,7 +7,7 @@
 ### Step 0
 
 ```
-wget https://github.com/favalonx/scripts/raw/main/firefox/firefox-install.sh
+wget https://github.com/fhdaax/scripts/raw/main/firefox/firefox-install.sh
 ```
 
 ### Step 1
