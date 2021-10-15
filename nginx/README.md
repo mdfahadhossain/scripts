@@ -29,3 +29,8 @@ sudo apt update && sudo apt upgrade -y
 ```
 sudo apt purge nginx -y
 ```
+
+
+# Nginx QUIC/HTTP3
+
+See how you can build and setup nginx with quic/http3 support [here](QUIC.md).
