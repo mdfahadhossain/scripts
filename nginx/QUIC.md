@@ -504,3 +504,12 @@ sudo systemctl restart nginx
 ```
 
 **Enjoy HTTP3**
+
+
+
+
+# $100 free credit in DigitalOcean
+
+DigitalOcean is providing you $100 free credit for two months to use their products including VPS droplets starting from $5/m. Signup with my referral image to redeem the offer.
+
+[![DigitalOcean Referral Badge](https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg)](https://www.digitalocean.com/?refcode=93f03a33b121&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge)
