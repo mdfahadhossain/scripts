@@ -1,6 +1,10 @@
-# Setup Nginx QUIC
+# How to setup Nginx with QUIC/HTTP3 support
 
 You're about to build and install Nginx server with QUIC/HTTP3 support. I am assuming that you already know what it is and how it works. Also keep in mind that, this build is not suppose to run on a production server.
+
+### Either you build one or you can download which is already built and tested for you from the [release](https://github.com/fhdaax/scripts/releases/tag/nginx) of this repository, and follow only the setup guide down below.
+
+Follow up this step by step. Raise issue if you face any problem.
 
 ## Environment Setup
 
@@ -13,7 +17,7 @@ sudo apt update && sudo apt upgrade -y
 Get the necessary tools for the build.
 
 ```bash
-sudo apt install -y dpkg-dev uuid-dev mercurial golang libunwind-dev unzip
+sudo apt install -y dpkg-dev uuid-dev mercurial golang libunwind-dev unzip cmake
 ```
 
 ## NGINX Source Code
@@ -51,14 +55,14 @@ Update the version name according to your system version name. In our case, it's
 Update your system once again.
 
 ```bash
-sudo apt update && sudo apt upgrade -y
+sudo apt update
 ```
 
 Now, build dependencies for NGINX and pull the source code.
 
 ```bash
-sudo apt-get build-dep nginx
-sudo apt-get source nginx
+sudo apt build-dep nginx -y
+sudo apt source nginx
 ```
 After that, you should see a folder named nginx with version on the current.
 
@@ -70,6 +74,13 @@ We already got the source code of nginx and now we need to get nginx-quic and sy
 hg clone -b quic https://hg.nginx.org/nginx-quic
 ```
 
+Get the ownership of the `nginx` directory.
+
+```bash
+sudo chown -R username:username ~/nginx
+```
+Replace `username` with your username.
+
 Overwrite all content of the nginx-quic directory to the nginx source code folder.
 
 ```bash
@@ -80,8 +91,10 @@ rsync -r nginx-quic/ nginx-x.x.x
 
 We will need a BoringSSL library that provides QUIC support.
 
+cd to the following.
+
 ```bash
-mkdir -p nginx-x.x.x/debain/modules; cd $_
+cd nginx-x.x.x/debain/
 ```
 
 Clone BoringSSL repo.
@@ -102,6 +115,7 @@ Compile it to make it ready to use with nginx source code.
 cmake ../
 make -j 8
 ```
+This may take a few moment.
 
 ## Additional modules
 
@@ -112,10 +126,11 @@ We will add the following two additional modules with nginx.
 
 ### Pagespeed
 
-Back to the `debain/modules` directory.
+Back to the debain directory, make a `modules` directory and cd into it.
 
 ```bash
 cd ../..
+mkdir -p modules; cd $_
 ```
 
 Download and extract pagespeed to the appropriate directory.
@@ -145,11 +160,11 @@ git clone --recursive https://github.com/google/ngx_brotli
 
 ## Configure the QUIC and the modules
 
-Come back to the `dabain` directory. Sit back, we need to make a few updates the `rules` file.
+Get back to the `dabain` directory. Sit back, we need to make a few updates to the `rules` file.
 
 ```bash
 cd ..
-nano rules
+nano -l rules
 ```
 Follow these steps for the both lines that says `config.env.nginx` and `config.env.nginx_debug`, you might find these at line of 41 and 46 respectively.
 
@@ -168,7 +183,7 @@ CFLAGS="-Wno-ignored-qualifiers"
 Now, let's add BoringSSL. You might already see these options `--with-cc-opt` and `--with-ld-opt`. Overwrite them with the following.
 
 ```
---with-cc-opt="-I../modules/boringssl/include $(CFLAGS)" --with-ld-opt="-L../modules/boringssl/build/ssl -L../modules/boringssl/build/crypto $(LDFLAGS)"
+--with-cc-opt="-I../boringssl/include $(CFLAGS)" --with-ld-opt="-L../boringssl/build/ssl -L../boringssl/build/crypto $(LDFLAGS)"
 ```
 
 ### Add modules to the config
@@ -180,12 +195,6 @@ At the `./configure` of *config.env.nginx* and *config.env.nginx_debug*, add the
 ```
 
 Make sure you do the same changes on both line `config.env.nginx` and `config.env.nginx_debug`.
-
-Add the bellow option only if it's not already there for this line only `config.env.nginx_debug` right after `–with-stream_ssl_preread_module` option.
-
-```
---with-debug
-```
 
 It's time to compile.
 
@@ -288,7 +297,7 @@ Let's go configure nginx server
 
 ```bash
 cd /etc/nginx
-sudo rm -f conf.d/default.conf
+sudo rm -f nginx.conf conf.d/default.conf
 sudo nano nginx.conf
 ```
 
@@ -407,8 +416,8 @@ And paste the following
 ```
 server{
     listen 80;
-    index index.html index.nginx-debian.html;
-    server_name yourdomain.com www.yourdomain.com
+    index index.html;
+    server_name yourdomain.com;
 
     root /var/www/html;
 }
@@ -446,7 +455,7 @@ sudo snap install certbot --classic
 Issue an SSL certificate for your site.
 
 ```bash
-sudo certbot --nginx -d yourdomain.com -d www.yourdomain.com
+sudo certbot --nginx -d yourdomain.com
 ```
 
 Answer the following questions and certbot will issue and configure a certificate for your site.
@@ -464,10 +473,10 @@ server{
     listen 443 http3 quic reuseport;
     listen 443 ssl http2;
 
-    add_header alt-svc '$quic=":443"; ma=3600';
+    add_header alt-svc 'h3-29=":443"; ma=3600' always;
 
     index index.html index.nginx-debian.html;
-    server_name yourdomain.com www.yourdomain.com
+    server_name yourdomain.com;
 
     root /var/www/html;
 
@@ -479,10 +488,7 @@ server{
 }
 server{
     listen 80;
-    server_name yourdomain.com www.yourdomain.com;
-    if ($host = www.yourdomain.com) {
-        return 301 https://$host$request_uri;
-    }
+    server_name yourdomain.com;
     if ($host = yourdomain.com) {
         return 301 https://$host$request_uri;
     }
