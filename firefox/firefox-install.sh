@@ -2,14 +2,19 @@
 
 sudo apt purge firefox -y
 
-sudo rm -rf ~/.mozilla/firefox /etc/firefox /usr/lib/firefox /usr/lib/firefox-addons
+sudo rm -rf ~/.mozilla/firefox /etc/firefox /usr/lib/firefox /usr/lib/firefox-addons /usr/share/applications/*irefox.desktop
 
-cd
-mkdir mozilla-firefox-installation && cd $_
+cd ~
 
-wget https://download-installer.cdn.mozilla.net/pub/firefox/releases/92.0/linux-x86_64/en-US/firefox-92.0.tar.bz2
+link=$1
 
-sudo tar xvf firefox-92.0.tar.bz2 -C /usr/lib/
+if [ -z "$1" ]; then
+  read -p "Insert the download link: " link
+fi
+
+wget $link -O firefox.tar.bz2
+
+sudo tar xvf firefox.tar.bz2 -C /usr/lib/
 
 sudo cat >/usr/share/applications/Firefox.desktop <<EOL
 [Desktop Entry]
@@ -36,5 +41,5 @@ echo Done!
 echo Cleaning...
 
 cd
-rm -rf mozilla-firefox-installation
+rm -f firefox.tar.bz2
 echo Firefox browser has been installed successfully.
