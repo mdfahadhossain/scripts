@@ -60,5 +60,5 @@ sudo apt purge firefox -y
 Clean all files and directories regarding firefox.
 
 ```bash
-sudo rm -rf ~/.mozilla/firefox /etc/firefox /usr/lib/firefox /usr/lib/firefox-addons
+sudo rm -rf ~/.mozilla/firefox /etc/firefox /usr/lib/firefox /usr/lib/firefox-addons /usr/share/applications/*irefox.desktop
 ```
