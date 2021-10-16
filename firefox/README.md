@@ -1,24 +1,43 @@
 # Firefox browser
 
-========================
+## Install from official PPA (Prefered)
 
-## Install
+First, we need to add the Mozilla signing key to our system:
 
-### Step 0
-
-```
-wget https://github.com/favalonx/scripts/raw/main/firefox/firefox-install.sh
+```bash
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys A6DCF7707EBC211F
 ```
 
-### Step 1
+Next, add Mozilla’s PPA repository and update.
 
-```
-sudo bash firefox-install.sh
+```bash
+sudo apt-add-repository "deb http://ppa.launchpad.net/ubuntu-mozilla-security/ppa/ubuntu focal main"
+sudo apt update
 ```
 
-### Step 2
+Finally, install the latest version of Firefox with this command.
 
+```bash
+sudo apt install firefox -y
 ```
+
+## Install from official website
+
+Download the script from this repository.
+
+```bash
+wget https://github.com/fhdaax/scripts/raw/main/firefox/firefox-install.sh
+```
+
+Get the latest download link from [this page](https://www.mozilla.org/en-US/firefox/browsers/). Be aware that this script will remove firefox and its data on your system.
+
+```bash
+sudo bash firefox-install.sh https://download-installer.cdn.mozilla.net/pub/firefox/releases/93.0/linux-x86_64/en-US/firefox-93.0.tar.bz2
+```
+
+Remove the script you just used.
+
+```bash
 rm -f firefox-install.sh
 ```
 
@@ -26,18 +45,20 @@ Done!
 
 ## Update
 
-Once you install the Firefox browser following the above script, it will handle the updates automatically.
+```bash
+sudo apt update && sudo apt upgrade -y
+```
 
 ## Uninstall
 
-### Step 0
+Uninstall firefox
 
-```
+```bash
 sudo apt purge firefox -y
 ```
 
-### Step 1
+Clean all files and directories regarding firefox.
 
-```
+```bash
 sudo rm -rf ~/.mozilla/firefox /etc/firefox /usr/lib/firefox /usr/lib/firefox-addons
 ```
