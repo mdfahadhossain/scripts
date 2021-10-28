@@ -4,15 +4,11 @@
 
 ## Install
 
-### Step 0
-
 Download the installation script.
 
 ```
 curl -sL https://deb.nodesource.com/setup_16.x -o nodesource_setup.sh
 ```
-
-### Step 1
 
 Run the script with bash.
 
@@ -20,21 +16,17 @@ Run the script with bash.
 sudo bash nodesource_setup.sh
 ```
 
-### Step 2
+Now, `Node.JS` is ready to install.
 
 ```
 sudo apt install nodejs -y
 ```
-
-### Step 3
 
 Remove the script you just used.
 
 ```
 rm nodesource_setup.sh
 ```
-
-### Step 4
 
 Check installation
 
