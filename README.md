@@ -9,6 +9,7 @@ The commands and scripts mentioned in each of the sections are tested on `Ubuntu
 
 | Application | Description |
 | ----------- | ------ |
+| [Android Studio](/android-studio) | Android Studio is the official integrated development environment for Google's Android operating system, built on JetBrains' IntelliJ IDEA software and designed specifically for Android development. |
 | [AnyDesk](/anydesk) | AnyDesk is a closed source remote desktop application distributed by AnyDesk Software GmbH. |
 | [Audacity](/audacity) | Audacity is a free and open-source digital audio editor and recording application software, available for Windows, macOS, Linux, and other Unix-like operating systems. |
 | [Google&nbsp;Chrome](/chrome) | Google Chrome is a cross-platform web browser developed by Google. |
