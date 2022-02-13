@@ -5,7 +5,7 @@
 Download the script.
 
 ```
-wget https://github.com/fhdaax/scripts/raw/main/openvpn/openvpn-install.sh
+wget https://github.com/fahadlabs/scripts/raw/main/openvpn/openvpn-install.sh
 ```
 
 Run it, leave `sudo` if you are already logged in as `root`.
