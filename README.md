@@ -1,6 +1,6 @@
 # Helpful Scripts for Ubuntu
 
-Managing your Linux applications made easier.
+"Where there is a shell, there is a way"
 
 ### Run the scripts on your own responsibility.
 
