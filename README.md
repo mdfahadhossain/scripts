@@ -4,7 +4,7 @@
 
 ### Run the scripts on your own responsibility.
 
-The commands and scripts mentioned in each of the sections are tested on `Ubuntu 20.04 LTS`. Many of them can be used on any distribution of Linux. There's no limit to how you can hack (customize) a Linux system.
+The commands and scripts mentioned in each of the sections are tested on `Ubuntu 20.04 LTS` and/or `Ubuntu 22.04 LTS`. Many of them can be used on any distribution of Linux. There's no limit to how you can hack (customize) a Linux system.
 
 
 | Application | Description |
