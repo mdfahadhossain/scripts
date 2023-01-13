@@ -7,7 +7,7 @@
 ### Step 0
 
 ```
-wget https://github.com/fhdaax/scripts/raw/main/docker/install-docker.sh
+wget https://github.com/mdfahadhossain/scripts/raw/main/docker/install-docker.sh
 ```
 
 ### Step 1
