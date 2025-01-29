@@ -12,6 +12,7 @@ The commands and scripts mentioned in each of the sections are tested on `Ubuntu
 | [Android Studio](/android-studio) | Android Studio is the official integrated development environment for Google's Android operating system, built on JetBrains' IntelliJ IDEA software and designed specifically for Android development. |
 | [AnyDesk](/anydesk) | AnyDesk is a closed source remote desktop application distributed by AnyDesk Software GmbH. |
 | [Audacity](/audacity) | Audacity is a free and open-source digital audio editor and recording application software, available for Windows, macOS, Linux, and other Unix-like operating systems. |
+| [Cursor](/cursor) | The AI Code Editor - Built to make you extraordinarily productive, Cursor is the best way to code with AI. |
 | [Google&nbsp;Chrome](/chrome) | Google Chrome is a cross-platform web browser developed by Google. |
 | [Docker](/docker) | Docker is a set of platform as a service products that use OS-level virtualization to deliver software in packages called containers. |
 | [Firefox](/firefox) | Mozilla Firefox or simply Firefox, is a free and open-source web browser developed by the Mozilla Foundation and its subsidiary, the Mozilla Corporation. |
