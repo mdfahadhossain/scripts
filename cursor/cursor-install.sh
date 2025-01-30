@@ -31,6 +31,9 @@ Exec=$CURSOR_DIR/cursor --no-sandbox
 Icon=$CURSOR_DIR/cursor.png
 Type=Application
 Categories=Development;
+Comment=Build software better, together
+Keywords=Editor;AI;Programming;
+StartupWMClass=Cursor
 EOF"
 
 # Set permissions for the .desktop file
